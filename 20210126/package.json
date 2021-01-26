@@ -1,0 +1,12 @@
+{
+  "name": "20210126",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "4.46.0",
+    "webpack-cli": "3.3.4",
+    "webpack-dev-server": "3.11.1",
+    "html-webpack-plugin": "^4.5.1"
+  }
+}
