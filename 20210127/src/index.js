@@ -7,4 +7,4 @@ class Index {
 }
 
 let index = new Index();
-console.lo(index);
+console.log(index);
