@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlPlugin = require('html-webpack-plugin');
 const Webpack = require('webpack');
-const { webpack } = require('webpack');
+const Happypack = require('happypack');
 
 module.exports = {
     entry: './src/index.js',
@@ -14,17 +14,22 @@ module.exports = {
         // 不去解析jQuery的依赖关系
         noParse: /jquery/,
         rules: [
+            // {
+            //     test: /\.js$/,
+            //     use: {
+            //         loader: 'babel-loader',
+            //         options: {
+            //             presets: [
+            //                 '@babel/preset-env',
+            //                 '@babel/preset-react',
+            //             ]
+            //         }
+            //     }
+            // }
+            // 用Happypack去打包js文件
             {
                 test: /\.js$/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: [
-                            '@babel/preset-env',
-                            '@babel/preset-react',
-                        ]
-                    }
-                }
+                use: 'Happypack/loader?id=js'
             }
         ]
     },
@@ -35,6 +40,18 @@ module.exports = {
         new Webpack.IgnorePlugin(/\.\/locale/, /moment/),
         new Webpack.DllReferencePlugin({
             manifest: path.resolve(__dirname, 'dist', 'manifest.json')
+        }),
+        new Happypack({
+            id: 'js',
+            use: [{
+                    loader: 'babel-loader',
+                    options: {
+                        presets: [
+                            '@babel/preset-env',
+                            '@babel/preset-react',
+                        ]
+                    }
+                }]
         })
     ],
     // externals: {
