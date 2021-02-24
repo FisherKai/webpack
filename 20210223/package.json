@@ -1,0 +1,10 @@
+{
+  "name": "20210223",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "tapable": "^2.2.0",
+    "webpack": "4.46.0"
+  }
+}
