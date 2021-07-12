@@ -17,3 +17,6 @@ Tapable
       1. AsyncSeriesHook
       2. AsyncSeriesBailHook
       3. AsyncSerierWaterfallHook
+
+* 注册事件的三个方法：tap tapAsync tapPromise
+* 执行函数的三个方法：call callAsync promise
